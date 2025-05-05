@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>PW Jarvis Shutdown Notice</title>
+    <!-- Import fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Import Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ['class'],
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            dark: '#0f172a',
+                            main: '#1e293b',
+                            light: '#334155',
+                        },
+                        accent: {
+                            main: '#3b82f6',
+                            hover: '#2563eb',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+      body {
+        @apply font-sans antialiased bg-primary-dark text-white overflow-x-hidden;
+        background-image: 
+          radial-gradient(circle at 20% 35%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
+        min-height: 100vh;
+      }
+    }
+
+    /* Custom utility classes */
+    .card {
+      backdrop-filter: blur(10px);
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .tech-line {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+    }
+
+    .button-glow {
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+
+    .button-glow:hover {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.5);
+      pointer-events: none;
+      transform-origin: center;
+    }
+
+    /* Animation keyframes */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .animate-slide-up {
+      animation: slideUp 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .animate-fade-in-delay {
+      animation: fadeIn 1s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+
+    .animate-pulse-slow {
+      animation: pulse 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="min-h-screen flex flex-col relative">
+        <!-- Particle Background -->
+        <div id="particles-container" class="fixed inset-0 -z-10">
+            <!-- Particles will be generated dynamically -->
+        </div>
+
+        <!-- Decorative tech lines -->
+        <div class="tech-line top-1/4"></div>
+        <div class="tech-line top-2/4"></div>
+        <div class="tech-line top-3/4"></div>
+
+        <!-- Header Section -->
+        <header class="w-full py-6 px-4 opacity-0 animate-fade-in">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent-main" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M9.504 1.132a1 1 0 01.992 0l1.75 1a1 1 0 11-.992 1.736L10 3.152l-1.254.716a1 1 0 11-.992-1.736l1.75-1zM5.618 4.504a1 1 0 01-.372 1.364L5.016 6l.23.132a1 1 0 11-.992 1.736L4 7.723V8a1 1 0 01-2 0V6a.996.996 0 01.52-.878l1.734-.99a1 1 0 011.364.372zm8.764 0a1 1 0 011.364-.372l1.733.99A1.002 1.002 0 0118 6v2a1 1 0 11-2 0v-.277l-.254.145a1 1 0 11-.992-1.736l.23-.132-.23-.132a1 1 0 01-.372-1.364zm-7 4a1 1 0 011.364-.372L10 8.848l1.254-.716a1 1 0 11.992 1.736L11 10.58V12a1 1 0 11-2 0v-1.42l-1.246-.712a1 1 0 01-.372-1.364zM3 11a1 1 0 011 1v1.42l1.246.712a1 1 0 11-.992 1.736l-1.75-1A1 1 0 012 14v-2a1 1 0 011-1zm14 0a1 1 0 011 1v2a1 1 0 01-.504.868l-1.75 1a1 1 0 11-.992-1.736L16 13.42V12a1 1 0 011-1zm-9.618 5.504a1 1 0 011.364-.372l.254.145V16a1 1 0 112 0v.277l.254-.145a1 1 0 11.992 1.736l-1.735.992a.995.995 0 01-1.022 0l-1.735-.992a1 1 0 01-.372-1.364z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <h1 class="text-xl font-bold font-poppins tracking-wide text-white">PW Jarvis</h1>
+                </div>
+                <a href="https://pw.live" target="_blank" rel="noopener noreferrer"
+                    class="text-sm font-medium text-blue-300 hover:text-blue-200 transition">
+                    Visit PW.live →
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container mx-auto px-4 py-8 md:py-16 relative z-10 flex-grow">
+            <div id="notification" class="max-w-3xl mx-auto opacity-0">
+                <div class="card rounded-2xl overflow-hidden shadow-2xl p-6 md:p-10 relative">
+                
+                    <!-- Content -->
+                    <div class="text-center pt-8">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 font-poppins">PW Jarvis Has Been Shut
+                            Down</h2>
+                        <div class="h-1 w-20 bg-accent-main mx-auto my-6 rounded-full"></div>
+                        <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+                            We regret to inform you that PW Jarvis services are no longer available. To continue
+                            accessing our educational resources and services, please visit the official PW.live
+                            platform.
+                        </p>
+
+                        <!-- Features Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
+                            <!-- Feature 1 -->
+                            <div
+                                class="feature-card bg-primary-light/30 p-5 rounded-xl backdrop-blur-sm border border-blue-500/20 transform transition-all duration-300 hover:scale-105 opacity-0">
+                                <div
+                                    class="rounded-full bg-blue-500/20 p-3 w-14 h-14 mx-auto mb-4 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white mb-2">Direct Purchase</h3>
+                                <p class="text-gray-300 text-sm">Buy your batch directly from PW.live for authentic
+                                    learning experience.</p>
+                            </div>
+
+                            <!-- Feature 2 -->
+                            <div
+                                class="feature-card bg-primary-light/30 p-5 rounded-xl backdrop-blur-sm border border-blue-500/20 transform transition-all duration-300 hover:scale-105 opacity-0">
+                                <div
+                                    class="rounded-full bg-blue-500/20 p-3 w-14 h-14 mx-auto mb-4 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white mb-2">Full Access</h3>
+                                <p class="text-gray-300 text-sm">Get complete access to all courses, practice materials,
+                                    and live sessions.</p>
+                            </div>
+
+                            <!-- Feature 3 -->
+                            <div
+                                class="feature-card bg-primary-light/30 p-5 rounded-xl backdrop-blur-sm border border-blue-500/20 transform transition-all duration-300 hover:scale-105 opacity-0">
+                                <div
+                                    class="rounded-full bg-blue-500/20 p-3 w-14 h-14 mx-auto mb-4 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white mb-2">Premium Support</h3>
+                                <p class="text-gray-300 text-sm">Receive direct assistance from our expert faculty and
+                                    support team.</p>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <div class="my-8">
+                            <a id="cta-button" href="https://pw.live" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center px-8 py-4 bg-accent-main hover:bg-accent-hover text-white font-bold rounded-full transition-all duration-300 transform button-glow">
+                                <span>Continue to PW.live</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- Important Note -->
+                        <div class="mt-10 bg-red-500/10 border border-red-500/30 p-4 rounded-lg">
+                            <p class="text-red-300 text-sm">
+                                <span class="font-semibold">IMPORTANT:</span> PW.live is the only official platform to
+                                purchase Physics Wallah content. Beware of unofficial alternatives.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Toast Notification -->
+        <div id="toast"
+            class="fixed bottom-5 right-5 bg-primary-main border border-blue-500/30 rounded-lg shadow-lg px-4 py-3 flex items-center space-x-3 transform transition-all duration-500 translate-y-20 opacity-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div>
+                <p class="text-sm font-medium text-white">Visit PW.live for all your educational needs</p>
+                <p class="text-xs text-blue-300">Get exclusive offers when you register today</p>
+            </div>
+            <button id="close-toast" class="text-gray-400 hover:text-white ml-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="py-6 border-t border-blue-900/30 mt-20">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400">© 2025 PW Jarvis. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript for animations and interactivity -->
+    <script>
+        // Create particles for the background
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            if (!container) return;
+
+            // Clear any existing particles
+            container.innerHTML = '';
+
+            // Create particles based on screen size
+            const particleCount = window.innerWidth < 768 ? 30 : 60;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Random position, size and opacity
+                const size = Math.random() * 4 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.opacity = `${Math.random() * 0.5}`;
+
+                // Animation
+                const duration = Math.random() * 5 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s linear infinite`;
+                particle.style.animationDelay = `${delay}s`;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Notification animations
+        function animateNotification() {
+            const notification = document.getElementById('notification');
+
+            if (notification) {
+                setTimeout(() => {
+                    notification.style.opacity = "1";
+                    notification.classList.add("animate-slide-up");
+                }, 300);
+            }
+
+            // Animate feature cards with delay
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = "1";
+                    card.classList.add("animate-fade-in-delay");
+                }, 500 + index * 200);
+            });
+        }
+
+        // CTA button hover effect
+        function setupCTAButton() {
+            const ctaButton = document.getElementById('cta-button');
+
+            if (ctaButton) {
+                ctaButton.addEventListener("mouseover", () => {
+                    ctaButton.classList.add("scale-105");
+                });
+
+                ctaButton.addEventListener("mouseout", () => {
+                    ctaButton.classList.remove("scale-105");
+                });
+            }
+        }
+
+        // Toast notification
+        function setupToast() {
+            const toast = document.getElementById('toast');
+            const closeToastBtn = document.getElementById('close-toast');
+
+            // Show toast after delay
+            setTimeout(() => {
+                toast.classList.remove('translate-y-20', 'opacity-0');
+            }, 2000);
+
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 12000);
+
+            // Close button
+            closeToastBtn.addEventListener('click', () => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            });
+        }
+
+        // Resize handler for particles
+        function setupResizeHandler() {
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(createParticles, 300);
+            });
+        }
+
+        // Initialize everything when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            animateNotification();
+            setupCTAButton();
+            setupToast();
+            setupResizeHandler();
+        });
+    </script>
+</body>
+
+</html>
